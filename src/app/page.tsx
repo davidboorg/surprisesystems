@@ -48,7 +48,7 @@ export default function Home() {
             SURPRISE.SYSTEMS™
           </p>
           <a
-            href="mailto:hello@surprisesystems.com"
+            href="mailto:david@surprisesystems.io"
             className="text-[11px] font-bold tracking-wide text-[#afafaf] hover:text-[#282828] transition-colors"
           >
             CONTACT
@@ -93,7 +93,7 @@ export default function Home() {
                 <a href="#how" className="block text-[16px] underline">
                   → Explore how we work
                 </a>
-                <a href="mailto:hello@surprisesystems.com" className="block text-[16px] underline">
+                <a href="mailto:david@surprisesystems.io" className="block text-[16px] underline">
                   → Start a conversation
                 </a>
               </div>
@@ -356,7 +356,7 @@ export default function Home() {
                 wrong — and knowing where to move before others do.
               </p>
               <a
-                href="mailto:hello@surprisesystems.com"
+                href="mailto:david@surprisesystems.io"
                 className="block mt-6 text-[16px] font-bold uppercase underline"
               >
                 → Start with a conversation
