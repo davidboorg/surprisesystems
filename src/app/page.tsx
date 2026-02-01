@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white text-[22px] leading-[23px] tracking-[0.01em]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white">
         <div className="max-w-[1440px] mx-auto px-6 py-5 flex justify-between items-center">
@@ -57,73 +57,65 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-16 px-6">
+      <section className="pt-[65px] px-6">
         <div className="max-w-[1440px] mx-auto">
-          {/* White bordered container */}
-          <div className="border border-[#bcbcbc] bg-white relative">
-            <div className="flex justify-center py-20">
-              <img
-                src="/images/hero-eye-new.png"
-                alt="Surprise Systems Logo"
-                className="w-full max-w-[659px] h-auto"
-              />
-            </div>
+          {/* White bordered container - 1395 x 870 */}
+          <div className="border border-[#bcbcbc] bg-white w-[1395px] h-[870px] max-w-full flex items-center justify-center mx-auto">
+            <img
+              src="/images/hero-eye-new.png"
+              alt="Surprise Systems Logo"
+              className="w-[659px] h-[398px] object-contain"
+            />
           </div>
         </div>
       </section>
 
       {/* Intro Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="grid md:grid-cols-2 gap-16">
-            {/* Left - Intro Text */}
-            <div ref={addToRefs} className="reveal max-w-[515px]">
-              <h1 className="text-[16px] font-bold uppercase tracking-wide leading-relaxed mb-6">
-                Surprise Systems™, a creative innovation studio for the product-led economy.
-              </h1>
-              <div className="space-y-4 text-[16px] leading-relaxed">
-                <p>
-                  We help organizations discover new opportunities, turn them into testable products,
-                  and decide what to build - before scale makes mistakes expensive. In a product-led
-                  economy, direction is proven through use.
-                </p>
-                <p>We help teams find that direction early.</p>
-              </div>
-              <div className="mt-8 space-y-2">
-                <a href="#how" className="block text-[16px] underline">
-                  → Explore how we work
-                </a>
-                <a href="mailto:david@surprisesystems.io" className="block text-[16px] underline">
-                  → Start a conversation
-                </a>
-              </div>
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+          <div ref={addToRefs} className="reveal max-w-[515px]">
+            <h1 className="font-bold uppercase tracking-[0.01em] mb-6">
+              Surprise Systems™, a creative innovation studio for the product-led economy.
+            </h1>
+            <div className="space-y-4">
+              <p>
+                We help organizations discover new opportunities, turn them into testable products,
+                and decide what to build - before scale makes mistakes expensive. In a product-led
+                economy, direction is proven through use.
+              </p>
+              <p>We help teams find that direction early.</p>
             </div>
-
-            {/* Right - Empty for balance */}
-            <div />
+            <div className="mt-8 space-y-2">
+              <a href="#how" className="block underline">
+                → Explore how we work
+              </a>
+              <a href="mailto:david@surprisesystems.io" className="block underline">
+                → Start a conversation
+              </a>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Hidden Cost Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
-            {/* Left - Image */}
+            {/* Left - Image 718x479 */}
             <div ref={addToRefs} className="reveal">
               <img
                 src="/images/image-hidden-cost.png"
                 alt="Innovation"
-                className="w-full max-w-[718px] h-auto object-cover"
+                className="w-[718px] h-[479px] object-cover"
               />
             </div>
 
             {/* Right - Text */}
             <div ref={addToRefs} className="reveal max-w-[515px]">
-              <h2 className="text-[16px] font-bold uppercase tracking-wide mb-6">
+              <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
                 The hidden cost of playing it safe.
               </h2>
-              <div className="space-y-4 text-[16px] leading-relaxed">
+              <div className="space-y-4">
                 <p>For a long time, playing it safe worked.</p>
                 <p>Predictable markets rewarded optimization, efficiency, and control.</p>
                 <p>
@@ -132,7 +124,7 @@ export default function Home() {
                 </p>
                 <p>Assumptions harden early. Learning comes late. Relevance fades quietly.</p>
               </div>
-              <div className="mt-6 space-y-1 text-[16px] font-medium">
+              <div className="mt-6 space-y-1 font-medium">
                 <p>The risk is rarely moving too fast.</p>
                 <p>It's locking into the wrong direction too early.</p>
               </div>
@@ -142,47 +134,45 @@ export default function Home() {
       </section>
 
       {/* Changing Behavior Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="max-w-[515px]">
-            <div ref={addToRefs} className="reveal">
-              <h2 className="text-[16px] font-bold uppercase tracking-wide mb-6">
-                Changing behavior through real usage.
-              </h2>
-              <div className="space-y-4 text-[16px] leading-relaxed">
-                <p>
-                  Real change doesn't come from strategy decks. It comes from behavior. We design
-                  products, services, and formats that people actually use — and we measure what
-                  happens. Creativity is not decoration.
-                </p>
-                <p>It is the mechanism that makes new behavior possible.</p>
-              </div>
-              <div className="mt-6 space-y-1 text-[16px] italic font-medium">
-                <p>No usage change.</p>
-                <p>No real impact.</p>
-              </div>
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+          <div ref={addToRefs} className="reveal max-w-[515px]">
+            <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
+              Changing behavior through real usage.
+            </h2>
+            <div className="space-y-4">
+              <p>
+                Real change doesn't come from strategy decks. It comes from behavior. We design
+                products, services, and formats that people actually use — and we measure what
+                happens. Creativity is not decoration.
+              </p>
+              <p>It is the mechanism that makes new behavior possible.</p>
+            </div>
+            <div className="mt-6 space-y-1 italic font-medium">
+              <p>No usage change.</p>
+              <p>No real impact.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* David Borg Section */}
-      <section className="px-6 py-16" id="who">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]" id="who">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left - Image */}
             <div ref={addToRefs} className="reveal">
               <img
                 src="/images/david-borg-new.png"
                 alt="David Borg"
-                className="w-full max-w-[658px] h-auto object-cover"
+                className="w-[658px] h-[685px] object-cover"
               />
             </div>
 
             {/* Right - Text */}
             <div ref={addToRefs} className="reveal max-w-[515px]">
-              <h3 className="text-[16px] font-bold uppercase tracking-wide mb-6">David Borg</h3>
-              <div className="space-y-4 text-[16px] leading-relaxed">
+              <h3 className="font-bold uppercase tracking-[0.01em] mb-6">David Borg</h3>
+              <div className="space-y-4">
                 <p>
                   A strategist and entrepreneur with the ability to connect business, culture, and
                   technology in ways that create new opportunities.
@@ -200,13 +190,13 @@ export default function Home() {
       </section>
 
       {/* Johan Pihl Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left - Text */}
-            <div ref={addToRefs} className="reveal max-w-[515px]">
-              <h3 className="text-[16px] font-bold uppercase tracking-wide mb-6">Johan Pihl</h3>
-              <div className="space-y-4 text-[16px] leading-relaxed">
+            <div ref={addToRefs} className="reveal max-w-[515px] ml-auto">
+              <h3 className="font-bold uppercase tracking-[0.01em] mb-6">Johan Pihl</h3>
+              <div className="space-y-4">
                 <p>
                   A creative entrepreneur and innovation specialist working at the intersection of
                   communication, design, and technology to solve complex challenges. Over more than
@@ -225,7 +215,7 @@ export default function Home() {
               <img
                 src="/images/johan-pihl-new.png"
                 alt="Johan Pihl"
-                className="w-full max-w-[567px] h-auto object-cover"
+                className="w-[567px] h-[722px] object-cover"
               />
             </div>
           </div>
@@ -233,15 +223,15 @@ export default function Home() {
       </section>
 
       {/* From Uncertainty to Momentum Section */}
-      <section className="px-6 py-16" id="how">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]" id="how">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left - Text */}
-            <div ref={addToRefs} className="reveal max-w-[515px]">
-              <h2 className="text-[16px] font-bold uppercase tracking-wide mb-6">
+            <div ref={addToRefs} className="reveal max-w-[515px] pl-[101px]">
+              <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
                 From uncertainty to momentum
               </h2>
-              <div className="space-y-4 text-[16px] leading-relaxed">
+              <div className="space-y-4">
                 <p>
                   We work where complexity is high and clarity is missing — where better decisions
                   matter most.
@@ -254,19 +244,19 @@ export default function Home() {
               <div className="mt-8 space-y-6">
                 <div>
                   <p className="font-medium uppercase">→ Sprint</p>
-                  <p className="text-[16px]">Test direction before committing.</p>
+                  <p>Test direction before committing.</p>
                 </div>
                 <div>
                   <p className="font-medium uppercase">→ Leap</p>
-                  <p className="text-[16px]">Turn validated direction into something worth investing in.</p>
+                  <p>Turn validated direction into something worth investing in.</p>
                 </div>
                 <div>
                   <p className="font-medium uppercase">→ Blitz</p>
-                  <p className="text-[16px]">Scale what works. Create measurable market impact.</p>
+                  <p>Scale what works. Create measurable market impact.</p>
                 </div>
               </div>
 
-              <p className="mt-8 text-[16px]">
+              <p className="mt-8">
                 Each tempo turns uncertainty into something you can actually act on.
               </p>
             </div>
@@ -289,9 +279,9 @@ export default function Home() {
       </section>
 
       {/* Venn Diagram Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="border border-black bg-white p-12">
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-6">
+          <div className="border border-black bg-white p-12 mx-[23px]">
             <div ref={addToRefs} className="reveal flex justify-center">
               <img
                 src="/images/venn-diagram-new.png"
@@ -304,60 +294,58 @@ export default function Home() {
       </section>
 
       {/* ROI Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
-          <div className="max-w-[515px]">
-            <div ref={addToRefs} className="reveal">
-              <h2 className="text-[16px] font-bold uppercase tracking-wide mb-6">
-                The ROI of better decisions
-              </h2>
-              <div className="space-y-4 text-[16px] leading-relaxed">
-                <p>We don't promise vague innovation outcomes.</p>
-                <p>We promise better decisions, earlier.</p>
-              </div>
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+          <div ref={addToRefs} className="reveal max-w-[515px]">
+            <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
+              The ROI of better decisions
+            </h2>
+            <div className="space-y-4">
+              <p>We don't promise vague innovation outcomes.</p>
+              <p>We promise better decisions, earlier.</p>
+            </div>
 
-              <div className="mt-6 space-y-4 text-[16px]">
-                <p>→ Reach strategic clarity faster</p>
-                <p>→ Test bold directions before committing at scale</p>
-                <p>→ Align around evidence instead of opinion</p>
-                <p>→ Reduce the cost of being wrong</p>
-              </div>
+            <div className="mt-6 space-y-4">
+              <p>→ Reach strategic clarity faster</p>
+              <p>→ Test bold directions before committing at scale</p>
+              <p>→ Align around evidence instead of opinion</p>
+              <p>→ Reduce the cost of being wrong</p>
+            </div>
 
-              <div className="mt-6 space-y-1 text-[16px]">
-                <p>The biggest hidden cost isn't failure.</p>
-                <p>It's being wrong too late.</p>
-              </div>
+            <div className="mt-6 space-y-1">
+              <p>The biggest hidden cost isn't failure.</p>
+              <p>It's being wrong too late.</p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer Image */}
-      <section className="px-6 py-8">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div ref={addToRefs} className="reveal">
             <img
               src="/images/footer-image.png"
               alt="Surprise Systems Team"
-              className="w-full h-auto object-cover"
+              className="w-full max-w-[1382px] h-[738px] object-cover mx-auto"
             />
           </div>
         </div>
       </section>
 
       {/* Closing Section */}
-      <section className="px-6 py-16">
-        <div className="max-w-[1440px] mx-auto">
+      <section className="py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-16">
             {/* Left - CTA */}
-            <div ref={addToRefs} className="reveal max-w-[515px]">
-              <p className="text-[16px] font-bold uppercase tracking-wide leading-relaxed">
+            <div ref={addToRefs} className="reveal max-w-[515px] pl-[101px]">
+              <p className="font-bold uppercase tracking-[0.01em]">
                 Innovation is not about taking bigger risks. It's about reducing the cost of being
                 wrong — and knowing where to move before others do.
               </p>
               <a
                 href="mailto:david@surprisesystems.io"
-                className="block mt-6 text-[16px] font-bold uppercase underline"
+                className="block mt-6 font-bold uppercase underline"
               >
                 → Start with a conversation
               </a>
@@ -365,7 +353,7 @@ export default function Home() {
 
             {/* Right - Copyright */}
             <div className="text-right">
-              <p className="text-[10px] text-[#7b7575] uppercase tracking-wide">
+              <p className="text-[10px] text-[#7b7575] uppercase tracking-wide leading-[10px]">
                 <span className="font-medium">© Surprise SYSTEMS</span>. All content, software, and
                 outputs are provided "as is" for informational purposes only; no warranties are
                 given, all intellectual property remains with Surprise SYSTEMS, and we accept no
