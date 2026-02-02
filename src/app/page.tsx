@@ -33,23 +33,23 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-white text-[22px] leading-[23px] tracking-[0.01em]">
+    <main className="min-h-screen bg-white text-[16px] md:text-[22px] leading-[1.4] md:leading-[23px] tracking-[0.01em]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white">
-        <div className="max-w-[1440px] mx-auto px-6 py-5 flex justify-between items-center">
-          <div className="w-12 h-7">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 py-4 md:py-5 flex justify-between items-center">
+          <div className="w-10 h-6 md:w-12 md:h-7">
             <img
               src="/images/symbol-black.png"
               alt="Surprise Systems"
               className="w-full h-full object-contain"
             />
           </div>
-          <p className="text-[11px] font-bold tracking-wide text-[#282828]">
+          <p className="text-[9px] md:text-[11px] font-bold tracking-wide text-[#282828]">
             SURPRISE.SYSTEMS™
           </p>
           <a
             href="mailto:david@surprisesystems.io"
-            className="text-[11px] font-bold tracking-wide text-[#afafaf] hover:text-[#282828] transition-colors"
+            className="text-[9px] md:text-[11px] font-bold tracking-wide text-[#afafaf] hover:text-[#282828] transition-colors"
           >
             CONTACT
           </a>
@@ -57,22 +57,22 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-[65px] px-6">
+      <section className="pt-[65px] px-4 md:px-6">
         <div className="max-w-[1440px] mx-auto">
-          {/* White bordered container - 1395 x 870 */}
-          <div className="border border-[#bcbcbc] bg-white w-[1395px] h-[870px] max-w-full flex items-center justify-center mx-auto">
+          {/* White bordered container - responsive */}
+          <div className="border border-[#bcbcbc] bg-white w-full max-w-[1395px] aspect-[1395/870] flex items-center justify-center mx-auto">
             <img
               src="/images/hero-eye-new.png"
               alt="Surprise Systems Logo"
-              className="w-[659px] h-[398px] object-contain"
+              className="w-[80%] max-w-[659px] h-auto object-contain"
             />
           </div>
         </div>
       </section>
 
       {/* Intro Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 md:pl-[125px]">
           <div ref={addToRefs} className="reveal max-w-[515px]">
             <h1 className="font-bold uppercase tracking-[0.01em] mb-6">
               Surprise Systems™, a creative innovation studio for the product-led economy.
@@ -98,15 +98,15 @@ export default function Home() {
       </section>
 
       {/* Hidden Cost Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             {/* Left - Image 718x479 */}
             <div ref={addToRefs} className="reveal">
               <img
                 src="/images/image-hidden-cost.png"
                 alt="Innovation"
-                className="w-[718px] h-[479px] object-cover"
+                className="w-full max-w-[718px] h-auto aspect-[718/479] object-cover"
               />
             </div>
 
@@ -134,8 +134,8 @@ export default function Home() {
       </section>
 
       {/* Changing Behavior Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 md:pl-[125px]">
           <div ref={addToRefs} className="reveal max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
               Changing behavior through real usage.
@@ -157,9 +157,9 @@ export default function Home() {
       </section>
 
       {/* David Borg Section */}
-      <section className="py-[50px]" id="who">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-8 md:py-[50px]" id="who">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             {/* Left - Image */}
             <div ref={addToRefs} className="reveal">
               <img
@@ -190,11 +190,11 @@ export default function Home() {
       </section>
 
       {/* Johan Pihl Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             {/* Left - Text */}
-            <div ref={addToRefs} className="reveal max-w-[515px] ml-auto">
+            <div ref={addToRefs} className="reveal max-w-[515px] md:ml-auto order-2 md:order-1">
               <h3 className="font-bold uppercase tracking-[0.01em] mb-6">Johan Pihl</h3>
               <div className="space-y-4">
                 <p>
@@ -211,11 +211,11 @@ export default function Home() {
             </div>
 
             {/* Right - Image */}
-            <div ref={addToRefs} className="reveal">
+            <div ref={addToRefs} className="reveal order-1 md:order-2">
               <img
                 src="/images/johan-pihl-new.png"
                 alt="Johan Pihl"
-                className="w-[567px] h-[722px] object-cover"
+                className="w-full max-w-[567px] h-auto aspect-[567/722] object-cover"
               />
             </div>
           </div>
@@ -223,11 +223,11 @@ export default function Home() {
       </section>
 
       {/* From Uncertainty to Momentum Section */}
-      <section className="py-[50px]" id="how">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-8 md:py-[50px]" id="how">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             {/* Left - Text */}
-            <div ref={addToRefs} className="reveal max-w-[515px] pl-[101px]">
+            <div ref={addToRefs} className="reveal max-w-[515px] md:pl-[101px]">
               <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
                 From uncertainty to momentum
               </h2>
@@ -279,9 +279,9 @@ export default function Home() {
       </section>
 
       {/* Venn Diagram Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="border border-black bg-white p-12 mx-[23px]">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="border border-black bg-white p-4 md:p-12 mx-0 md:mx-[23px]">
             <div ref={addToRefs} className="reveal flex justify-center">
               <img
                 src="/images/venn-diagram-new.png"
@@ -294,8 +294,8 @@ export default function Home() {
       </section>
 
       {/* ROI Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto pl-[125px] pr-6">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6 md:pl-[125px]">
           <div ref={addToRefs} className="reveal max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
               The ROI of better decisions
@@ -321,24 +321,24 @@ export default function Home() {
       </section>
 
       {/* Footer Image */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-6">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
           <div ref={addToRefs} className="reveal">
             <img
               src="/images/footer-image.png"
               alt="Surprise Systems Team"
-              className="w-full max-w-[1382px] h-[738px] object-cover mx-auto"
+              className="w-full max-w-[1382px] h-auto aspect-[1382/738] object-cover mx-auto"
             />
           </div>
         </div>
       </section>
 
       {/* Closing Section */}
-      <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-6">
-          <div className="grid md:grid-cols-2 gap-16">
+      <section className="py-8 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-6">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16">
             {/* Left - CTA */}
-            <div ref={addToRefs} className="reveal max-w-[515px] pl-[101px]">
+            <div ref={addToRefs} className="reveal max-w-[515px] md:pl-[101px]">
               <p className="font-bold uppercase tracking-[0.01em]">
                 Innovation is not about taking bigger risks. It's about reducing the cost of being
                 wrong — and knowing where to move before others do.
