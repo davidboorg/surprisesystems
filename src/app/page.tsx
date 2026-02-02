@@ -161,7 +161,7 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - Image */}
-            <div ref={addToRefs} className="reveal order-2 md:order-1">
+            <div ref={addToRefs} className="reveal">
               <img
                 src="/images/david-borg-new.png"
                 alt="David Borg"
@@ -170,7 +170,7 @@ export default function Home() {
             </div>
 
             {/* Right - Text */}
-            <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] order-1 md:order-2">
+            <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
               <h3 className="font-bold uppercase tracking-[0.01em] mb-6">David Borg</h3>
               <div className="space-y-4">
                 <p>
