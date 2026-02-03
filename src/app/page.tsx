@@ -348,7 +348,7 @@ export default function Home() {
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
               <p className="font-bold uppercase tracking-[0.01em]">
                 Innovation is not about taking bigger risks. It's about reducing the cost of being
-                wrong — and knowing where to move before others do.
+                wrong — and knowing where to move before others&nbsp;do.
               </p>
               <a
                 href="mailto:david@surprisesystems.io"
