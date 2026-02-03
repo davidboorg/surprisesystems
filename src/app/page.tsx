@@ -61,9 +61,12 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto">
           {/* White bordered container - mobile: 361x703, desktop: 1395x870 */}
           <div className="border border-[#919191] md:border-[#bcbcbc] bg-white w-full aspect-[361/703] md:aspect-[1395/870] max-w-[1395px] flex items-center justify-center mx-auto">
-            <img
-              src="/images/hero-eye-new.png"
-              alt="Surprise Systems Logo"
+            <video
+              src="/images/here-eye-new.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
               className="w-[60%] md:w-auto max-w-[659px] h-auto object-contain"
             />
           </div>
