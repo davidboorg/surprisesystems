@@ -36,7 +36,7 @@ export default function Home() {
     <main className="min-h-screen bg-white text-[22px] leading-[23px] tracking-[0.01em]">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white">
-        <div className="max-w-[1440px] mx-auto px-[19px] md:px-[23px] py-[17px] md:py-[22px] flex justify-between items-center">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px] py-[17px] md:py-[22px] flex justify-between items-center">
           <div className="w-12 h-[29px]">
             <img
               src="/images/symbol-black.png"
@@ -57,7 +57,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-[66px] px-[19px] md:px-[22px]">
+      <section className="pt-[66px] px-4 md:px-[22px]">
         <div className="max-w-[1440px] mx-auto">
           {/* White bordered container - mobile: 361x703, desktop: 1395x870 */}
           <div className="border border-[#919191] md:border-[#bcbcbc] bg-white w-full aspect-[361/703] md:aspect-[1395/870] max-w-[1395px] flex items-center justify-center mx-auto">
@@ -72,7 +72,7 @@ export default function Home() {
 
       {/* Intro Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:pl-[124px] md:pr-6">
+        <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h1 className="font-bold uppercase tracking-[0.01em] mb-6">
               Surprise Systems™, a creative innovation studio for the product-led economy.
@@ -99,7 +99,7 @@ export default function Home() {
 
       {/* Hidden Cost Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - Image 718x479 */}
             <div ref={addToRefs} className="reveal order-2 md:order-1">
@@ -135,7 +135,7 @@ export default function Home() {
 
       {/* Changing Behavior Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:pl-[124px] md:pr-6">
+        <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
               Changing behavior through real usage.
@@ -158,7 +158,7 @@ export default function Home() {
 
       {/* David Borg Section */}
       <section className="py-[50px]" id="who">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - Image */}
             <div ref={addToRefs} className="reveal">
@@ -191,7 +191,7 @@ export default function Home() {
 
       {/* Johan Pihl Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - Text */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:ml-auto order-2 md:order-1">
@@ -224,7 +224,7 @@ export default function Home() {
 
       {/* From Uncertainty to Momentum Section */}
       <section className="py-[50px]" id="how">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - Text */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
@@ -280,13 +280,20 @@ export default function Home() {
 
       {/* Venn Diagram Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="border-[0.5px] border-black bg-white p-4 md:p-12 md:mx-[23px]">
             <div ref={addToRefs} className="reveal flex justify-center">
+              {/* Mobile: vertical image */}
+              <img
+                src="/images/venn-diagram-mobile.png"
+                alt="Service Design Process"
+                className="w-full md:hidden"
+              />
+              {/* Desktop: horizontal image */}
               <img
                 src="/images/venn-diagram-new.png"
                 alt="Service Design Process"
-                className="w-full max-w-[1158px]"
+                className="hidden md:block w-full max-w-[1158px]"
               />
             </div>
           </div>
@@ -295,7 +302,7 @@ export default function Home() {
 
       {/* ROI Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:pl-[124px] md:pr-6">
+        <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
               The ROI of better decisions
@@ -322,7 +329,7 @@ export default function Home() {
 
       {/* Footer Image */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div ref={addToRefs} className="reveal">
             <img
               src="/images/footer-image.png"
@@ -335,7 +342,7 @@ export default function Home() {
 
       {/* Closing Section */}
       <section className="py-[50px]">
-        <div className="max-w-[1440px] mx-auto px-[17px] md:px-[23px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
             {/* Left - CTA */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
