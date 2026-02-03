@@ -67,7 +67,7 @@ export default function Home() {
               loop
               muted
               playsInline
-              className="w-[80%] md:w-[70%] max-w-[900px] h-auto object-contain"
+              className="w-[80%] md:w-[80%] max-w-[1100px] h-auto object-contain"
             />
           </div>
         </div>
