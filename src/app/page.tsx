@@ -168,7 +168,7 @@ export default function Home() {
               <img
                 src="/images/david-borg-new.png"
                 alt="David Borg"
-                className="w-full max-w-[354px] md:max-w-[658px] h-auto aspect-[354/531] md:aspect-[658/685] object-cover"
+                className="w-full md:max-w-[658px] h-auto"
               />
             </div>
 
