@@ -71,7 +71,7 @@ export default function Home() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h1 className="font-bold uppercase tracking-[0.01em] mb-6">
@@ -98,9 +98,9 @@ export default function Home() {
       </section>
 
       {/* Hidden Cost Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
             {/* Left - Image 718x479 */}
             <div ref={addToRefs} className="reveal order-2 md:order-1">
               <img
@@ -134,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Changing Behavior Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
@@ -157,9 +157,9 @@ export default function Home() {
       </section>
 
       {/* David Borg Section */}
-      <section className="py-[50px]" id="who">
+      <section className="py-8 md:py-[50px]" id="who">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
             {/* Left - Image */}
             <div ref={addToRefs} className="reveal">
               <img
@@ -190,9 +190,9 @@ export default function Home() {
       </section>
 
       {/* Johan Pihl Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
             {/* Left - Text */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:ml-auto order-2 md:order-1">
               <h3 className="font-bold uppercase tracking-[0.01em] mb-6">Johan Pihl</h3>
@@ -223,9 +223,9 @@ export default function Home() {
       </section>
 
       {/* From Uncertainty to Momentum Section */}
-      <section className="py-[50px]" id="how">
+      <section className="py-8 md:py-[50px]" id="how">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
             {/* Left - Text */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
               <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
@@ -279,7 +279,7 @@ export default function Home() {
       </section>
 
       {/* Venn Diagram Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="border-[0.5px] border-black bg-white p-4 md:p-12 md:mx-[23px]">
             <div ref={addToRefs} className="reveal flex justify-center">
@@ -301,7 +301,7 @@ export default function Home() {
       </section>
 
       {/* ROI Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
@@ -328,7 +328,7 @@ export default function Home() {
       </section>
 
       {/* Footer Image */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div ref={addToRefs} className="reveal">
             <img
@@ -341,9 +341,9 @@ export default function Home() {
       </section>
 
       {/* Closing Section */}
-      <section className="py-[50px]">
+      <section className="py-8 md:py-[50px]">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
-          <div className="flex flex-col md:grid md:grid-cols-2 gap-[50px] md:gap-16">
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
             {/* Left - CTA */}
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
               <p className="font-bold uppercase tracking-[0.01em]">
