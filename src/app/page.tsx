@@ -67,6 +67,7 @@ export default function Home() {
               loop
               muted
               playsInline
+              preload="auto"
               className="w-[80%] md:w-[80%] max-w-[1100px] h-auto object-contain"
             />
           </div>
