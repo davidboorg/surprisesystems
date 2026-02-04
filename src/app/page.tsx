@@ -62,7 +62,7 @@ export default function Home() {
           {/* White bordered container - mobile: 361x703, desktop: 1395x870 */}
           <div className="border border-[#919191] md:border-[#bcbcbc] bg-white w-full aspect-[361/703] md:aspect-[1395/870] max-w-[1395px] flex items-center justify-center mx-auto">
             <video
-              src="/images/here-eye-new.mp4"
+              src="/images/here-eye-boomerang.mp4"
               autoPlay
               loop
               muted
