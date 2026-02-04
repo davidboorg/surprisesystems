@@ -267,16 +267,48 @@ export default function Home() {
 
             {/* Right - Awards */}
             <div ref={addToRefs} className="reveal space-y-4">
-              <img
-                src="/images/awards-1.png"
-                alt="Awards"
-                className="w-full max-w-[701px]"
-              />
-              <img
-                src="/images/awards-2.png"
-                alt="Awards"
-                className="w-full max-w-[656px]"
-              />
+              {/* Awards Row 1 */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-wci.png" alt="World Changing Ideas" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    Fast Company<br />World Changing<br />Ideas
+                  </div>
+                </div>
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-cannes.png" alt="Cannes Lions" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    Cannes Lions<br />Festival of Creativity<br />Grand Prix
+                  </div>
+                </div>
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-time.png" alt="Time Magazine" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    Time Magazine<br />Invention of the<br />Year
+                  </div>
+                </div>
+              </div>
+              {/* Awards Row 2 */}
+              <div className="grid grid-cols-3 gap-4">
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-fc-innovative.png" alt="Most Innovative" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    Fast Company<br />Most Innovative<br />Companies
+                  </div>
+                </div>
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-dad.png" alt="D&AD" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    D&AD<br />Yellow Pencil<br />Winner
+                  </div>
+                </div>
+                <div className="border border-black p-4 flex flex-col items-center justify-between aspect-square">
+                  <img src="/images/award-reddot.png" alt="Red Dot" className="h-16 object-contain" />
+                  <div className="text-[11px] font-bold uppercase text-center leading-tight mt-2">
+                    Red Dot Award<br />Gold<br />Winner
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
