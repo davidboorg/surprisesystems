@@ -265,17 +265,37 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right - Awards */}
-            <div ref={addToRefs} className="reveal space-y-4">
+            {/* Right - Awards Grid */}
+            <div ref={addToRefs} className="reveal grid grid-cols-2 md:grid-cols-3 gap-4">
               <img
-                src="/images/awards-1.png"
-                alt="Awards"
-                className="w-full max-w-[701px]"
+                src="/images/award-1.png"
+                alt="Fast Company World Changing Ideas"
+                className="w-full"
               />
               <img
-                src="/images/awards-2.png"
-                alt="Awards"
-                className="w-full max-w-[656px]"
+                src="/images/award-2.png"
+                alt="Cannes Lions Grand Prix"
+                className="w-full"
+              />
+              <img
+                src="/images/award-3.png"
+                alt="Time Magazine Invention of the Year"
+                className="w-full"
+              />
+              <img
+                src="/images/award-4.png"
+                alt="Fast Company Most Innovative Companies"
+                className="w-full"
+              />
+              <img
+                src="/images/award-5.png"
+                alt="D&AD Yellow Pencil Winner"
+                className="w-full"
+              />
+              <img
+                src="/images/award-6.png"
+                alt="Red Dot Award Gold Winner"
+                className="w-full"
               />
             </div>
           </div>
