@@ -267,36 +267,72 @@ export default function Home() {
 
             {/* Right - Awards Grid */}
             <div ref={addToRefs} className="reveal grid grid-cols-2 md:grid-cols-3 gap-4">
-              <img
-                src="/images/award-1.png"
-                alt="Fast Company World Changing Ideas"
-                className="w-full"
-              />
-              <img
-                src="/images/award-2.png"
-                alt="Cannes Lions Grand Prix"
-                className="w-full"
-              />
-              <img
-                src="/images/award-3.png"
-                alt="Time Magazine Invention of the Year"
-                className="w-full"
-              />
-              <img
-                src="/images/award-4.png"
-                alt="Fast Company Most Innovative Companies"
-                className="w-full"
-              />
-              <img
-                src="/images/award-5.png"
-                alt="D&AD Yellow Pencil Winner"
-                className="w-full"
-              />
-              <img
-                src="/images/award-6.png"
-                alt="Red Dot Award Gold Winner"
-                className="w-full"
-              />
+              {/* Award 1 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-wci.png" alt="Fast Company World Changing Ideas" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>FAST COMPANY</p>
+                  <p>WORLD CHANGING</p>
+                  <p>IDEAS</p>
+                </div>
+              </div>
+              {/* Award 2 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-cannes.png" alt="Cannes Lions" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>CANNES LIONS</p>
+                  <p>FESTIVAL OF CREATIVITY</p>
+                  <p>GRAND PRIX</p>
+                </div>
+              </div>
+              {/* Award 3 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-time.png" alt="Time Magazine" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>TIME MAGAZINE</p>
+                  <p>INVENTION OF THE</p>
+                  <p>YEAR</p>
+                </div>
+              </div>
+              {/* Award 4 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-innovative.png" alt="Fast Company Most Innovative" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>FAST COMPANY</p>
+                  <p>MOST INNOVATIVE</p>
+                  <p>COMPANIES</p>
+                </div>
+              </div>
+              {/* Award 5 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-dad.png" alt="D&AD" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>D&AD</p>
+                  <p>YELLOW PENCIL</p>
+                  <p>WINNER</p>
+                </div>
+              </div>
+              {/* Award 6 */}
+              <div className="flex flex-col">
+                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
+                  <img src="/images/logo-reddot.png" alt="Red Dot Award" className="max-w-full max-h-full object-contain" />
+                </div>
+                <div className="mt-3 text-[14px] leading-[18px] uppercase">
+                  <p>RED DOT AWARD</p>
+                  <p>GOLD</p>
+                  <p>WINNER</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
