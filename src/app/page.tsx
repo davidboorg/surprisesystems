@@ -266,73 +266,17 @@ export default function Home() {
             </div>
 
             {/* Right - Awards Grid */}
-            <div ref={addToRefs} className="reveal grid grid-cols-2 md:grid-cols-3 gap-4">
-              {/* Award 1 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-wci.png" alt="Fast Company World Changing Ideas" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>FAST COMPANY</p>
-                  <p>WORLD CHANGING</p>
-                  <p>IDEAS</p>
-                </div>
-              </div>
-              {/* Award 2 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-cannes.png" alt="Cannes Lions" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>CANNES LIONS</p>
-                  <p>FESTIVAL OF CREATIVITY</p>
-                  <p>GRAND PRIX</p>
-                </div>
-              </div>
-              {/* Award 3 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-time.png" alt="Time Magazine" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>TIME MAGAZINE</p>
-                  <p>INVENTION OF THE</p>
-                  <p>YEAR</p>
-                </div>
-              </div>
-              {/* Award 4 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-innovative.png" alt="Fast Company Most Innovative" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>FAST COMPANY</p>
-                  <p>MOST INNOVATIVE</p>
-                  <p>COMPANIES</p>
-                </div>
-              </div>
-              {/* Award 5 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-dad.png" alt="D&AD" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>D&AD</p>
-                  <p>YELLOW PENCIL</p>
-                  <p>WINNER</p>
-                </div>
-              </div>
-              {/* Award 6 */}
-              <div className="flex flex-col">
-                <div className="border border-[#999] aspect-square flex items-center justify-center p-4">
-                  <img src="/images/logo-reddot.png" alt="Red Dot Award" className="max-w-full max-h-full object-contain" />
-                </div>
-                <div className="mt-3 text-[14px] leading-[18px] uppercase">
-                  <p>RED DOT AWARD</p>
-                  <p>GOLD</p>
-                  <p>WINNER</p>
-                </div>
-              </div>
+            <div ref={addToRefs} className="reveal flex flex-col gap-6 md:gap-8">
+              <img
+                src="/images/awards-1.png"
+                alt="Fast Company World Changing Ideas, Cannes Lions Grand Prix, Time Magazine Invention of the Year"
+                className="w-full h-auto"
+              />
+              <img
+                src="/images/awards-2.png"
+                alt="Fast Company Most Innovative Companies, D&AD Yellow Pencil Winner, Red Dot Award Gold Winner"
+                className="w-full h-auto"
+              />
             </div>
           </div>
         </div>
