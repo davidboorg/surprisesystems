@@ -230,8 +230,8 @@ export default function Home() {
       <section className="py-5 md:py-[50px]" id="how">
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-16">
-            {/* Left - Text */}
-            <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
+            {/* Left - Text (order-2 on mobile, order-1 on desktop) */}
+            <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px] order-2 md:order-1">
               <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
                 From uncertainty to momentum
               </h2>
@@ -265,14 +265,19 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Right - Awards Grid */}
-            <div ref={addToRefs} className="reveal grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-              <img src="/images/award-1.svg" alt="Fast Company World Changing Ideas" className="w-full h-auto" />
-              <img src="/images/award-2.svg" alt="Cannes Lions Grand Prix" className="w-full h-auto" />
-              <img src="/images/award-3.svg" alt="Time Magazine Invention of the Year" className="w-full h-auto" />
-              <img src="/images/award-4.svg" alt="Fast Company Most Innovative Companies" className="w-full h-auto" />
-              <img src="/images/award-5.svg?v=2" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
-              <img src="/images/award-6.svg" alt="Red Dot Award Gold Winner" className="w-full h-auto" />
+            {/* Right - Awards Grid (order-1 on mobile, order-2 on desktop) */}
+            <div ref={addToRefs} className="reveal order-1 md:order-2">
+              <p className="text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[12px] mb-4 max-w-[370px] md:max-w-[567px]">
+                Historically We've had the privilege of working on projects that have been awarded and internationally recognized for their creative excellence and real-world impact.
+              </p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+                <img src="/images/award-1.svg" alt="Fast Company World Changing Ideas" className="w-full h-auto" />
+                <img src="/images/award-2.svg" alt="Cannes Lions Grand Prix" className="w-full h-auto" />
+                <img src="/images/award-3.svg" alt="Time Magazine Invention of the Year" className="w-full h-auto" />
+                <img src="/images/award-4.svg" alt="Fast Company Most Innovative Companies" className="w-full h-auto" />
+                <img src="/images/award-5.svg?v=2" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
+                <img src="/images/award-6.svg" alt="Red Dot Award Gold Winner" className="w-full h-auto" />
+              </div>
             </div>
           </div>
         </div>
