@@ -271,7 +271,7 @@ export default function Home() {
               <img src="/images/award-2.svg" alt="Cannes Lions Grand Prix" className="w-full h-auto" />
               <img src="/images/award-3.svg" alt="Time Magazine Invention of the Year" className="w-full h-auto" />
               <img src="/images/award-4.svg" alt="Fast Company Most Innovative Companies" className="w-full h-auto" />
-              <img src="/images/award-5.svg" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
+              <img src="/images/award-5.svg?v=2" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
               <img src="/images/award-6.svg" alt="Red Dot Award Gold Winner" className="w-full h-auto" />
             </div>
           </div>
