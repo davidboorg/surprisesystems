@@ -266,17 +266,13 @@ export default function Home() {
             </div>
 
             {/* Right - Awards Grid */}
-            <div ref={addToRefs} className="reveal flex flex-col gap-6 md:gap-8">
-              <img
-                src="/images/awards-1.png"
-                alt="Fast Company World Changing Ideas, Cannes Lions Grand Prix, Time Magazine Invention of the Year"
-                className="w-full h-auto"
-              />
-              <img
-                src="/images/awards-2.png"
-                alt="Fast Company Most Innovative Companies, D&AD Yellow Pencil Winner, Red Dot Award Gold Winner"
-                className="w-full h-auto"
-              />
+            <div ref={addToRefs} className="reveal grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+              <img src="/images/award-1.svg" alt="Fast Company World Changing Ideas" className="w-full h-auto" />
+              <img src="/images/award-2.svg" alt="Cannes Lions Grand Prix" className="w-full h-auto" />
+              <img src="/images/award-3.svg" alt="Time Magazine Invention of the Year" className="w-full h-auto" />
+              <img src="/images/award-4.svg" alt="Fast Company Most Innovative Companies" className="w-full h-auto" />
+              <img src="/images/award-5.svg" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
+              <img src="/images/award-6.svg" alt="Red Dot Award Gold Winner" className="w-full h-auto" />
             </div>
           </div>
         </div>
