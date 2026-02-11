@@ -391,7 +391,7 @@ export default function Home() {
                 </a>
                 {" "}as our founding partner, and to be backed by visionary leader{" "}
                 <a
-                  href="https://www.linkedin.com/in/robertfalck/"
+                  href="https://www.linkedin.com/in/robert-falck-4a65262/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="underline"
