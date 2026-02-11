@@ -351,7 +351,7 @@ export default function Home() {
             <img
               src="/images/footer-new.png"
               alt="Surprise Systems Team"
-              className="w-full max-w-[352px] md:max-w-[1356px] h-auto mx-auto"
+              className="w-full max-w-none md:max-w-[1356px] h-auto mx-auto"
             />
           </div>
         </div>
