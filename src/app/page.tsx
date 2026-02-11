@@ -59,7 +59,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="pt-[180px] md:pt-[170px]">
         <div className="max-w-[1440px] mx-auto flex justify-center px-4 md:px-0">
-          <div className="w-full max-w-[360px] md:max-w-[1200px]">
+          <div className="w-full max-w-[360px] md:max-w-[1200px] relative">
             <video
               src="/images/logga_film.mp4"
               autoPlay
@@ -69,6 +69,10 @@ export default function Home() {
               preload="auto"
               className="w-full h-auto block"
             />
+            <div className="hidden md:block absolute top-0 left-0 right-0 h-[4px] bg-white pointer-events-none" />
+            <div className="hidden md:block absolute top-0 right-0 bottom-0 w-[4px] bg-white pointer-events-none" />
+            <div className="hidden md:block absolute bottom-0 left-0 right-0 h-[4px] bg-white pointer-events-none" />
+            <div className="hidden md:block absolute top-0 left-0 bottom-0 w-[4px] bg-white pointer-events-none" />
           </div>
         </div>
       </section>
