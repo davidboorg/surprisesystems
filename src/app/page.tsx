@@ -57,44 +57,47 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-[66px] px-4 md:px-[22px]">
-        <div className="max-w-[1440px] mx-auto">
-          {/* White bordered container - mobile: 361x703, desktop: 1395x870 */}
-          <div className="border border-[#919191] md:border-[#bcbcbc] bg-white w-full aspect-[361/703] md:aspect-[1395/870] max-w-[1395px] flex items-center justify-center mx-auto">
+      <section className="pt-[180px] md:pt-[170px]">
+        <div className="max-w-[1440px] mx-auto flex justify-center px-4 md:px-0">
+          <div className="w-full max-w-[360px] md:max-w-[1200px]">
             <video
-              src="/images/here-eye-boomerang.mp4"
+              src="/images/logga_film.mp4"
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="w-[80%] md:w-[80%] max-w-[1100px] h-auto object-contain"
+              className="w-full h-auto block"
             />
           </div>
         </div>
       </section>
 
       {/* Intro Section */}
-      <section className="py-5 md:py-[50px]">
+      <section className="pt-[200px] pb-[40px] md:pt-[150px] md:pb-[80px]">
         <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h1 className="font-bold uppercase tracking-[0.01em] mb-6">
-              Surprise Systems™, a creative innovation studio for the product-led economy.
+              Surprise Systems™
+              <br />
+              an innovation studio for the product-led&nbsp;economy.
             </h1>
             <div className="space-y-4">
               <p>
                 We help organizations discover new opportunities, turn them into testable products,
                 and decide what to build - before scale makes mistakes expensive. In a product-led
-                economy, direction is proven through use.
+                economy, direction is proven through behavioral change with real-world&nbsp;impact.
               </p>
-              <p>We help teams find that direction early.</p>
+              <p>We help find direction&nbsp;early.</p>
             </div>
             <div className="mt-8 space-y-2">
-              <a href="#how" className="block underline">
-                → Explore how we work
+              <a href="#how" className="flex underline">
+                <span className="mr-2">→</span>
+                <span>Explore how we work</span>
               </a>
-              <a href="mailto:david@surprisesystems.io" className="block underline">
-                → Start a conversation
+              <a href="mailto:david@surprisesystems.io" className="flex underline">
+                <span className="mr-2">→</span>
+                <span>Start a conversation</span>
               </a>
             </div>
           </div>
@@ -120,17 +123,17 @@ export default function Home() {
                 The hidden cost of playing it safe.
               </h2>
               <div className="space-y-4">
-                <p>For a long time, playing it safe worked.</p>
-                <p>Predictable markets rewarded optimization, efficiency, and control.</p>
+                <p>For a long time, playing it safe&nbsp;worked.</p>
+                <p>Predictable markets rewarded optimization, efficiency, and&nbsp;control.</p>
                 <p>
                   Today, that same logic often slows progress. Organizations optimize what can be
-                  measured, while behavior stays the same.
+                  measured, while behavior stays the&nbsp;same.
                 </p>
-                <p>Assumptions harden early. Learning comes late. Relevance fades quietly.</p>
+                <p>Assumptions harden early. Learning comes late. Relevance fades&nbsp;quietly.</p>
               </div>
               <div className="mt-6 space-y-1 font-medium">
-                <p>The risk is rarely moving too fast.</p>
-                <p>It's locking into the wrong direction too early.</p>
+                <p>The risk is rarely moving too&nbsp;fast.</p>
+                <p>It's locking into the wrong direction too&nbsp;early.</p>
               </div>
             </div>
           </div>
@@ -142,19 +145,19 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-4 md:pl-[124px] md:pr-6">
           <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
             <h2 className="font-bold uppercase tracking-[0.01em] mb-6">
-              Changing behavior through real usage.
+              Behavioral change as a method.
             </h2>
             <div className="space-y-4">
               <p>
-                Real change doesn't come from strategy decks. It comes from behavior. We design
-                products, services, and formats that people actually use — and we measure what
-                happens. Creativity is not decoration.
+                Real change doesn't come from strategy decks. It comes from behavioral change. We design
+                products, services, and formats that drive real behavioral change, and we measure what
+                happens. Creativity is not&nbsp;decoration.
               </p>
-              <p>It is the mechanism that makes new behavior possible.</p>
+              <p>It is the mechanism that makes new behavior&nbsp;possible.</p>
             </div>
             <div className="mt-6 space-y-1 italic font-medium">
-              <p>No usage change.</p>
-              <p>No real impact.</p>
+              <p>No behavioral&nbsp;change.</p>
+              <p>No real&nbsp;impact.</p>
             </div>
           </div>
         </div>
@@ -179,13 +182,15 @@ export default function Home() {
               <div className="space-y-4">
                 <p>
                   A strategist and entrepreneur with the ability to connect business, culture, and
-                  technology in ways that create new opportunities.
+                  technology in ways that create new&nbsp;opportunities.
                 </p>
                 <p>
                   His work has shaped some of Sweden's most successful communication concepts,
-                  defined by clarity and cultural relevance. As the founder of Borg Owilli, he built
-                  one of the country's leading content agencies and developed it into a widely
-                  respected creative organization.
+                  defined by clarity and cultural&nbsp;relevance.
+                </p>
+                <p>
+                  As the founder of Borg Owilli, he built one of the country's leading content
+                  agencies and developed it into a widely respected creative&nbsp;organization.
                 </p>
               </div>
             </div>
@@ -204,12 +209,11 @@ export default function Home() {
                 <p>
                   A creative entrepreneur and innovation specialist working at the intersection of
                   communication, design, and technology to solve complex challenges. Over more than
-                  two decades, he has built a career that connects marketing, innovation, and fintech.
+                  two decades, he has built a career that connects marketing, innovation, and&nbsp;fintech.
                 </p>
                 <p>
                   His projects span from global sustainability initiatives to financial technology
-                  platforms, earning him recognition as one of Sweden's most prominent creative
-                  leaders.
+                  platforms, earning him recognition as one of Sweden's most prominent creative&nbsp;leaders.
                 </p>
               </div>
             </div>
@@ -217,9 +221,9 @@ export default function Home() {
             {/* Right - Image */}
             <div ref={addToRefs} className="reveal order-1 md:order-2">
               <img
-                src="/images/johan-pihl-new.png"
+                src="/images/johan-pihl-new.png?v=2"
                 alt="Johan Pihl"
-                className="w-full max-w-[352px] md:max-w-[567px] h-auto aspect-[352/487] md:aspect-[567/722] object-cover"
+                className="w-full max-w-[567px] h-auto"
               />
             </div>
           </div>
@@ -237,38 +241,38 @@ export default function Home() {
               </h2>
               <div className="space-y-4">
                 <p>
-                  We work where complexity is high and clarity is missing — where better decisions
-                  matter most.
+                  We work where complexity is high and clarity is missing - where better decisions matter&nbsp;most.
                 </p>
                 <p>
-                  Our work moves through three tempos, each designed to turn uncertainty into action.
+                  Our work moves through three tempos, each designed to turn uncertainty into&nbsp;action.
                 </p>
               </div>
 
               <div className="mt-8 space-y-6">
                 <div>
-                  <p className="font-medium uppercase">→ Sprint</p>
-                  <p>Test direction before committing.</p>
+                  <p className="font-medium uppercase flex"><span className="mr-2">→</span><span>Sprint</span></p>
+                  <p className="pl-5">Test direction before&nbsp;committing.</p>
                 </div>
                 <div>
-                  <p className="font-medium uppercase">→ Leap</p>
-                  <p>Turn validated direction into something worth investing in.</p>
+                  <p className="font-medium uppercase flex"><span className="mr-2">→</span><span>Leap</span></p>
+                  <p className="pl-5">Turn validated direction into something worth investing&nbsp;in.</p>
                 </div>
                 <div>
-                  <p className="font-medium uppercase">→ Blitz</p>
-                  <p>Scale what works. Create measurable market impact.</p>
+                  <p className="font-medium uppercase flex"><span className="mr-2">→</span><span>Blitz</span></p>
+                  <p className="pl-5">Scale what works. Create measurable market&nbsp;impact.</p>
                 </div>
               </div>
 
               <p className="mt-8">
-                Each tempo turns uncertainty into something you can actually act on.
+                Each tempo turns uncertainty into something you can actually act&nbsp;on.
               </p>
             </div>
 
             {/* Right - Awards Grid (order-1 on mobile, order-2 on desktop) */}
             <div ref={addToRefs} className="reveal order-1 md:order-2">
-              <p className="text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[12px] mb-4 max-w-[370px] md:max-w-[567px]">
-                Historically We've had the privilege of working on projects that have been awarded and internationally recognized for their creative excellence and real-world impact.
+              {/* Description - shown first on desktop, after grid on mobile */}
+              <p className="hidden md:block text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[12px] mb-4 max-w-[567px]">
+                Historically, we've had the privilege of working on projects that have been awarded and internationally recognized for their creative excellence and real-world impact.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
                 <img src="/images/award-1.svg" alt="Fast Company World Changing Ideas" className="w-full h-auto" />
@@ -278,6 +282,10 @@ export default function Home() {
                 <img src="/images/award-5.svg?v=2" alt="D&AD Yellow Pencil Winner" className="w-full h-auto" />
                 <img src="/images/award-6.svg" alt="Red Dot Award Gold Winner" className="w-full h-auto" />
               </div>
+              {/* Description - shown after grid on mobile only */}
+              <p className="md:hidden text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[12px] mt-4 max-w-[370px]">
+                Historically, we've had the privilege of working on projects that have been awarded and internationally recognized for their creative excellence and real-world impact.
+              </p>
             </div>
           </div>
         </div>
@@ -290,15 +298,15 @@ export default function Home() {
             <div ref={addToRefs} className="reveal flex justify-center">
               {/* Mobile: vertical image */}
               <img
-                src="/images/venn-diagram-mobile.png"
+                src="/images/venn-diagram-mobile.png?v=2"
                 alt="Service Design Process"
                 className="w-full md:hidden"
               />
               {/* Desktop: horizontal image */}
               <img
-                src="/images/venn-diagram-new.png"
+                src="/images/venn-diagram-new-feb.png?v=2"
                 alt="Service Design Process"
-                className="hidden md:block w-full max-w-[1158px]"
+                className="hidden md:block w-full max-w-[993px]"
               />
             </div>
           </div>
@@ -313,20 +321,20 @@ export default function Home() {
               The ROI of better decisions
             </h2>
             <div className="space-y-4">
-              <p>We don't promise vague innovation outcomes.</p>
-              <p>We promise better decisions, earlier.</p>
+              <p>We don't promise vague innovation&nbsp;outcomes.</p>
+              <p>We promise better decisions,&nbsp;earlier.</p>
             </div>
 
-            <div className="mt-6 space-y-4">
-              <p>→ Reach strategic clarity faster</p>
-              <p>→ Test bold directions before committing at scale</p>
-              <p>→ Align around evidence instead of opinion</p>
-              <p>→ Reduce the cost of being wrong</p>
+            <div className="mt-6 space-y-6">
+              <p className="font-medium flex"><span className="mr-2">→</span><span>Reach strategic clarity&nbsp;faster</span></p>
+              <p className="font-medium flex"><span className="mr-2">→</span><span>Test bold directions before committing at&nbsp;scale</span></p>
+              <p className="font-medium flex"><span className="mr-2">→</span><span>Align around evidence instead of&nbsp;opinion</span></p>
+              <p className="font-medium flex"><span className="mr-2">→</span><span>Reduce the cost of being&nbsp;wrong</span></p>
             </div>
 
             <div className="mt-6 space-y-1">
-              <p>The biggest hidden cost isn't failure.</p>
-              <p>It's being wrong too late.</p>
+              <p>The biggest hidden cost isn't&nbsp;failure.</p>
+              <p>It's being wrong too&nbsp;late.</p>
             </div>
           </div>
         </div>
@@ -337,9 +345,9 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
           <div ref={addToRefs} className="reveal">
             <img
-              src="/images/footer-image.png"
+              src="/images/footer-new.png"
               alt="Surprise Systems Team"
-              className="w-full max-w-[354px] md:max-w-[1382px] h-auto aspect-[354/276] md:aspect-[1382/738] object-cover mx-auto"
+              className="w-full max-w-[352px] md:max-w-[1356px] h-auto mx-auto"
             />
           </div>
         </div>
@@ -353,26 +361,64 @@ export default function Home() {
             <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px] md:pl-[101px]">
               <p className="font-bold uppercase tracking-[0.01em]">
                 Innovation is not about taking bigger risks. It's about reducing the cost of being
-                wrong — and knowing where to move before others&nbsp;do.
+                wrong - and knowing where to move before others&nbsp;do.
               </p>
               <a
                 href="mailto:david@surprisesystems.io"
-                className="block mt-6 font-bold uppercase underline"
+                className="flex mt-6 font-bold uppercase underline"
               >
-                → Start with a conversation
+                <span className="mr-2">→</span>
+                <span>Start with a conversation</span>
               </a>
             </div>
 
-            {/* Right - Copyright */}
-            <div className="md:text-right">
-              <p className="text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[10px] max-w-[216px] md:max-w-[504px] md:ml-auto">
-                <span className="font-medium">© Surprise SYSTEMS</span>. All content, software, and
-                outputs are provided "as is" for informational purposes only; no warranties are
-                given, all intellectual property remains with Surprise SYSTEMS, and we accept no
-                liability for any direct or indirect use of the services.
+            {/* Right - Partners & Advisors */}
+            <div ref={addToRefs} className="reveal max-w-[367px] md:max-w-[515px]">
+              <h3 className="font-bold uppercase tracking-[0.01em] mb-6">Partners & advisors</h3>
+              <p>
+                We're proud to have the leading Nordic creative network{" "}
+                <a
+                  href="https://nordddb.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  NORD
+                </a>
+                {" "}as our founding partner, and to be backed by visionary leader{" "}
+                <a
+                  href="https://www.linkedin.com/in/robertfalck/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  Robert Falck
+                </a>
+                , founder of the Swedish unicorn{" "}
+                <a
+                  href="https://einride.tech"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline"
+                >
+                  Einride
+                </a>
+                , who also serves as our&nbsp;advisor.
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Copyright */}
+      <section className="py-5 md:py-[50px]">
+        <div className="max-w-[1440px] mx-auto px-4 md:px-[23px]">
+          <p className="text-[10px] text-[#7b7575] uppercase tracking-[0.1px] leading-[10px] max-w-[360px] md:max-w-[504px] md:pl-[101px]">
+            <span className="font-medium">© Surprise SYSTEMS</span>. All content, software, and
+            outputs are provided "as is" for informational purposes only; no warranties are
+            given, all intellectual property remains with Surprise SYSTEMS, and we accept no
+            liability for any direct or indirect use of the services.
+          </p>
         </div>
       </section>
     </main>
