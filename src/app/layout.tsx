@@ -27,6 +27,21 @@ export const metadata: Metadata = {
     description:
       "A product-led innovation studio working at the intersection of creativity, technology, and business.",
     type: "website",
+    images: [
+      {
+        url: "/images/footer-new.png",
+        width: 1356,
+        height: 904,
+        alt: "David Borg and Johan Pihl - Surprise Systems",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Surprise Systems | Product-Led Innovation Studio",
+    description:
+      "A product-led innovation studio working at the intersection of creativity, technology, and business.",
+    images: ["/images/footer-new.png"],
   },
 };
 
