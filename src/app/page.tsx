@@ -103,6 +103,10 @@ export default function Home() {
                 <span className="mr-2">→</span>
                 <span>Start a conversation</span>
               </a>
+              <a href="/press" className="flex underline">
+                <span className="mr-2">→</span>
+                <span>Read our press release</span>
+              </a>
             </div>
           </div>
         </div>
