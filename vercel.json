@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/valet2026/:path*",
+      "destination": "https://valet2026-ohd4.vercel.app/valet2026/:path*"
+    }
+  ]
+}
