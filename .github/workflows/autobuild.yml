@@ -1,0 +1,124 @@
+name: Autobuild (möte → prototyp)
+
+# Drag 3: MeetGeek-möte → Canon-analys → /new-build → preview → PR med /lab-kort.
+#
+# Två sätt att trigga:
+#   - repository_dispatch (meetgeek-meeting): från /api/meetgeek-webhook, prod-flödet
+#   - workflow_dispatch: manuell test. Klistra in en brief direkt (hoppar över MeetGeek + analys)
+#     ELLER ange ett meeting_id som hämtas + analyseras.
+#
+# Krävda secrets (Settings → Secrets and variables → Actions):
+#   MEETGEEK_API_KEY      – hämtar transkript (server-to-server)
+#   ANTHROPIC_API_KEY     – Claude headless (analys + /new-build) i CI
+#   VERCEL_TOKEN          – preview-deploy
+#   GH_PAT                – skapa projekt-repo + öppna PR (repo-scope)
+
+on:
+  repository_dispatch:
+    types: [meetgeek-meeting]
+  workflow_dispatch:
+    inputs:
+      project_name:
+        description: "Projektnamn (kebab-case). Tomt = härleds från briefen."
+        required: false
+      brief:
+        description: "Klistra in en brief direkt (test). Lämna tomt för att hämta från MeetGeek."
+        required: false
+      meeting_id:
+        description: "MeetGeek meeting_id att hämta (om ingen brief klistras in)."
+        required: false
+
+concurrency:
+  group: autobuild-${{ github.event.client_payload.meeting_id || github.event.inputs.meeting_id || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout surprisesystems
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Härled indata
+        id: input
+        run: |
+          MEETING_ID="${{ github.event.client_payload.meeting_id || github.event.inputs.meeting_id }}"
+          echo "meeting_id=$MEETING_ID" >> "$GITHUB_OUTPUT"
+          echo "manual_brief<<EOF" >> "$GITHUB_OUTPUT"
+          echo "${{ github.event.inputs.brief }}" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Hämta transkript från MeetGeek
+        if: steps.input.outputs.meeting_id != '' && steps.input.outputs.manual_brief == ''
+        env:
+          MEETGEEK_API_KEY: ${{ secrets.MEETGEEK_API_KEY }}
+          MEETING_ID: ${{ steps.input.outputs.meeting_id }}
+        run: |
+          # OBS: verifiera exakt endpoint mot docs.meetgeek.ai
+          curl -sS -H "Authorization: Bearer $MEETGEEK_API_KEY" \
+            "https://api.meetgeek.ai/v1/meetings/$MEETING_ID/transcript" \
+            -o transcript.json
+          node -e "const t=require('./transcript.json'); const s=JSON.stringify(t); require('fs').writeFileSync('source.txt', s.slice(0,20000));"
+
+      - name: Använd inklistrad brief (testläge)
+        if: steps.input.outputs.manual_brief != ''
+        run: printf '%s' "${{ steps.input.outputs.manual_brief }}" > source.txt
+
+      - name: Installera Claude Code + Surprise-plugin
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude plugin marketplace add davidboorg/surprise-skills || true
+          claude plugin install surprise-canon@surprise-skills || true
+
+      - name: Analys + /new-build (Claude headless)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PROJECT_NAME: ${{ github.event.inputs.project_name }}
+        run: |
+          claude -p "Läs källan i ./source.txt (mötestranskript eller brief). \
+          Kör /new-build-proceduren: härled ett kebab-case projektnamn (eller använd '$PROJECT_NAME' om satt), \
+          klona surprise-starter till ./generated, anpassa hero + tre steg-sektion från innehållet (kör tonen genom Canon), \
+          och kör 'npm install && npm run build' i ./generated tills bygget är grönt. \
+          Skriv till slut projektnamnet till ./project-name.txt och en enradsbeskrivning till ./project-desc.txt." \
+          --allowedTools "Bash,Read,Edit,Write" --permission-mode acceptEdits
+
+      - name: Deploya preview till Vercel
+        id: deploy
+        env:
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          cd generated
+          npm install -g vercel
+          URL=$(vercel deploy --yes --token "$VERCEL_TOKEN" 2>/dev/null | tail -1)
+          echo "preview_url=$URL" >> "$GITHUB_OUTPUT"
+
+      - name: Öppna PR med /lab-kort
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          PREVIEW_URL: ${{ steps.deploy.outputs.preview_url }}
+        run: |
+          NAME=$(cat project-name.txt 2>/dev/null || echo "ny-prototyp")
+          DESC=$(cat project-desc.txt 2>/dev/null || echo "Auto-genererad prototyp från möte.")
+          BRANCH="autobuild/$NAME-${{ github.run_id }}"
+          git config user.name "surprise-autobuild"
+          git config user.email "bot@surpriseventures.io"
+          git checkout -b "$BRANCH"
+          # Lägg till ett concept-kort i projects.ts (före sista ']')
+          node -e "
+            const fs=require('fs'); const f='src/lib/projects.ts'; let s=fs.readFileSync(f,'utf8');
+            const card='  {\n    title: '+JSON.stringify(process.env.NAME||'$NAME')+',\n    description: '+JSON.stringify(process.env.DESC||'$DESC')+',\n    status: \"concept\",\n    url: '+JSON.stringify(process.env.PREVIEW_URL||'#')+',\n    tags: [\"prototype\",\"autobuild\"],\n  },\n';
+            const i=s.lastIndexOf('];'); s=s.slice(0,i)+card+s.slice(i); fs.writeFileSync(f,s);
+          "
+          git add src/lib/projects.ts
+          git commit -m "Autobuild: lägg till $NAME på /lab (preview: $PREVIEW_URL)"
+          git push origin "$BRANCH"
+          gh pr create --title "Autobuild: $NAME" \
+            --body "Auto-genererad prototyp från möte.\n\nPreview: $PREVIEW_URL\n\nGranska och merge:a för att promota kortet på /lab." \
+            --base main --head "$BRANCH"
