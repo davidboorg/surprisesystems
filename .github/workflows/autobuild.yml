@@ -15,7 +15,7 @@ name: Autobuild (möte → prototyp)
 
 on:
   repository_dispatch:
-    types: [meetgeek-meeting]
+    types: [meetgeek-meeting, autobuild]
   workflow_dispatch:
     inputs:
       project_name:
@@ -46,11 +46,18 @@ jobs:
 
       - name: Härled indata
         id: input
+        env:
+          # brief kan komma från Telegram (client_payload.brief) eller manuell test (inputs.brief)
+          CP_BRIEF: ${{ github.event.client_payload.brief }}
+          IN_BRIEF: ${{ github.event.inputs.brief }}
         run: |
           MEETING_ID="${{ github.event.client_payload.meeting_id || github.event.inputs.meeting_id }}"
+          PROJECT_NAME="${{ github.event.client_payload.project_name || github.event.inputs.project_name }}"
           echo "meeting_id=$MEETING_ID" >> "$GITHUB_OUTPUT"
+          echo "project_name=$PROJECT_NAME" >> "$GITHUB_OUTPUT"
+          BRIEF="${CP_BRIEF:-$IN_BRIEF}"
           echo "manual_brief<<EOF" >> "$GITHUB_OUTPUT"
-          echo "${{ github.event.inputs.brief }}" >> "$GITHUB_OUTPUT"
+          echo "$BRIEF" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: Hämta transkript från MeetGeek
@@ -80,7 +87,7 @@ jobs:
       - name: Analys + /new-build (Claude headless)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          PROJECT_NAME: ${{ github.event.inputs.project_name }}
+          PROJECT_NAME: ${{ steps.input.outputs.project_name }}
         run: |
           claude -p "Läs källan i ./source.txt (mötestranskript eller brief). \
           Kör /new-build-proceduren: härled ett kebab-case projektnamn (eller använd '$PROJECT_NAME' om satt), \
