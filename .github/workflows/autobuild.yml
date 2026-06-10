@@ -118,7 +118,9 @@ jobs:
           BRANCH="autobuild/$NAME-${{ github.run_id }}"
           git config user.name "surprise-autobuild"
           git config user.email "bot@surpriseventures.io"
-          # Använd GH_PAT för push (github-actions[bot] saknar skrivrättighet → 403)
+          # Använd GH_PAT för push. actions/checkout sätter en persisterad auth-header
+          # (github-actions[bot]) som annars överskrider → 403. Rensa den först.
+          git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/davidboorg/surprisesystems.git"
           git checkout -b "$BRANCH"
           # Lägg till ett concept-kort i projects.ts (före sista ']')
