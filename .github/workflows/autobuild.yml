@@ -74,7 +74,9 @@ jobs:
 
       - name: Använd inklistrad brief (testläge)
         if: steps.input.outputs.manual_brief != ''
-        run: printf '%s' "${{ steps.input.outputs.manual_brief }}" > source.txt
+        env:
+          MANUAL_BRIEF: ${{ steps.input.outputs.manual_brief }}
+        run: printf '%s' "$MANUAL_BRIEF" > source.txt
 
       - name: Installera Claude Code + Surprise-plugin
         env:
