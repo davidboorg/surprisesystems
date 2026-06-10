@@ -89,12 +89,17 @@ jobs:
       - name: Analys + /new-build (Claude headless)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
           PROJECT_NAME: ${{ steps.input.outputs.project_name }}
         run: |
           claude -p "Läs källan i ./source.txt (mötestranskript eller brief). \
           Kör /new-build-proceduren: härled ett kebab-case projektnamn (eller använd '$PROJECT_NAME' om satt), \
-          klona surprise-starter till ./generated, anpassa hero + tre steg-sektion från innehållet (kör tonen genom Canon), \
-          och kör 'npm install && npm run build' i ./generated tills bygget är grönt. \
+          klona surprise-starter till ./generated, anpassa hero + sektioner från innehållet (kör tonen genom Canon). \
+          GENERERA BILDER: för de visuella element briefen kräver (avatar, hero, og-image), kör inifrån ./generated \
+          'node scripts/genimage.mjs \"<engelsk bildprompt>\" public/images/<namn>.png <aspect_ratio>' \
+          (FREEPIK_API_KEY finns i env; aspect: square_1_1/widescreen_16_9/social_story_9_16) och referera bilderna i sidan. \
+          Max 3 bilder. Hoppa över om briefen inte behöver bild. \
+          Kör sedan 'npm install && npm run build' i ./generated tills bygget är grönt. \
           Skriv till slut projektnamnet till ./project-name.txt och en enradsbeskrivning till ./project-desc.txt." \
           --allowedTools "Bash,Read,Edit,Write" --permission-mode acceptEdits
 
