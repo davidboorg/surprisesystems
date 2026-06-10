@@ -86,6 +86,13 @@ jobs:
           claude plugin marketplace add davidboorg/surprise-skills || true
           claude plugin install surprise-canon@surprise-skills || true
 
+      - name: Klona golden-path starter (privat → PAT)
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+        run: |
+          git clone --depth 1 "https://x-access-token:${GH_TOKEN}@github.com/davidboorg/surprise-starter.git" generated
+          rm -rf generated/.git
+
       - name: Analys + /new-build (Claude headless)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
@@ -93,8 +100,8 @@ jobs:
           PROJECT_NAME: ${{ steps.input.outputs.project_name }}
         run: |
           claude -p "Läs källan i ./source.txt (mötestranskript eller brief). \
-          Kör /new-build-proceduren: härled ett kebab-case projektnamn (eller använd '$PROJECT_NAME' om satt), \
-          klona surprise-starter till ./generated, anpassa hero + sektioner från innehållet (kör tonen genom Canon). \
+          Projektet finns REDAN i ./generated (golden-path surprise-starter med scripts/genimage.mjs, designsystem och komponenter — klona inte om). \
+          Härled ett kebab-case projektnamn (eller använd '$PROJECT_NAME' om satt), anpassa hero + sektioner i ./generated från innehållet (kör tonen genom Canon). \
           GENERERA BILDER: för de visuella element briefen kräver (avatar, hero, og-image), kör inifrån ./generated \
           'node scripts/genimage.mjs \"<engelsk bildprompt>\" public/images/<namn>.png <aspect_ratio>' \
           (FREEPIK_API_KEY finns i env; aspect: square_1_1/widescreen_16_9/social_story_9_16) och referera bilderna i sidan. \
