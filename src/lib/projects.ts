@@ -72,4 +72,11 @@ export const projects: Project[] = [
     tags: ["client", "demo"],
     year: 2026,
   },
+  {
+    title: "sparbanken-radgivare",
+    description: "Ett stillsamt argument mot AI-rådgivare i bank, framfört av en kuslig AI-rådgivare (Anders) — single-scroll för Sparbankerna med avslut hos en riktig människa.",
+    status: "concept",
+    url: "https://generated-gto3zwwsy-reportflow1.vercel.app",
+    tags: ["prototype","autobuild"],
+  },
 ];
