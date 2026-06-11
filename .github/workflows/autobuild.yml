@@ -111,39 +111,82 @@ jobs:
           --allowedTools "Bash,Read,Edit,Write" --permission-mode acceptEdits
 
       - name: Deploya preview till Vercel
-        id: deploy
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
         run: |
           cd generated
           npm install -g vercel
           URL=$(vercel deploy --yes --token "$VERCEL_TOKEN" 2>/dev/null | tail -1)
-          echo "preview_url=$URL" >> "$GITHUB_OUTPUT"
+          echo "$URL" > "$GITHUB_WORKSPACE/preview-url.txt"
 
-      - name: Öppna PR med /lab-kort
+      - name: Verifiera (Playwright + brand-check)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npm i playwright >/dev/null 2>&1
+          npx playwright install --with-deps chromium >/dev/null 2>&1
+          PREVIEW_URL="$(cat preview-url.txt)" node scripts/verify.mjs || true
+          echo "Verdikt: $(node -e "console.log(require('./verify-out/verdict.json').verdict)" 2>/dev/null || echo okänt)"
+
+      - name: Reparera (en iteration vid block-fel)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FREEPIK_API_KEY: ${{ secrets.FREEPIK_API_KEY }}
+          VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+        run: |
+          V=$(node -e "console.log(require('./verify-out/verdict.json').verdict)" 2>/dev/null || echo pass)
+          if [ "$V" != "fail" ]; then echo "Verdikt pass — ingen reparation."; exit 0; fi
+          echo "Verdikt fail — kör EN reparations-iteration."
+          claude -p "Brand-verifieringen underkände prototypen i ./generated. Violations (JSON): $(cat verify-out/verdict.json). Åtgärda dessa i ./generated enligt reglerna (palett/typografi/copy/layout), kör 'npm run build' tills grönt. Ändra inget annat." \
+            --allowedTools "Bash,Read,Edit,Write" --permission-mode acceptEdits || true
+          cd generated && URL=$(vercel deploy --yes --token "$VERCEL_TOKEN" 2>/dev/null | tail -1) && echo "$URL" > "$GITHUB_WORKSPACE/preview-url.txt"
+          cd "$GITHUB_WORKSPACE"
+          PREVIEW_URL="$(cat preview-url.txt)" node scripts/verify.mjs || true
+          echo "Verdikt efter reparation: $(node -e "console.log(require('./verify-out/verdict.json').verdict)" 2>/dev/null || echo okänt)"
+
+      - name: Öppna PR med /lab-kort + screenshots
         env:
           GH_TOKEN: ${{ secrets.GH_PAT }}
-          PREVIEW_URL: ${{ steps.deploy.outputs.preview_url }}
         run: |
           NAME=$(cat project-name.txt 2>/dev/null || echo "ny-prototyp")
-          DESC=$(cat project-desc.txt 2>/dev/null || echo "Auto-genererad prototyp från möte.")
+          DESC=$(cat project-desc.txt 2>/dev/null || echo "Auto-genererad prototyp.")
+          PREVIEW_URL=$(cat preview-url.txt 2>/dev/null || echo "#")
+          VERDICT=$(node -e "console.log(require('./verify-out/verdict.json').verdict)" 2>/dev/null || echo pass)
+          VIOL=$(node -e "const v=require('./verify-out/verdict.json').violations||[]; console.log(v.map(x=>'- ['+x.severity+'] '+x.rule+': '+x.where).join('\n')||'inga')" 2>/dev/null || echo "inga")
           BRANCH="autobuild/$NAME-${{ github.run_id }}"
+          export NAME DESC PREVIEW_URL
           git config user.name "surprise-autobuild"
           git config user.email "bot@surpriseventures.io"
-          # Använd GH_PAT för push. actions/checkout sätter en persisterad auth-header
-          # (github-actions[bot]) som annars överskrider → 403. Rensa den först.
           git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
           git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/davidboorg/surprisesystems.git"
           git checkout -b "$BRANCH"
-          # Lägg till ett concept-kort i projects.ts (före sista ']')
+          # concept-kort i projects.ts
           node -e "
             const fs=require('fs'); const f='src/lib/projects.ts'; let s=fs.readFileSync(f,'utf8');
-            const card='  {\n    title: '+JSON.stringify(process.env.NAME||'$NAME')+',\n    description: '+JSON.stringify(process.env.DESC||'$DESC')+',\n    status: \"concept\",\n    url: '+JSON.stringify(process.env.PREVIEW_URL||'#')+',\n    tags: [\"prototype\",\"autobuild\"],\n  },\n';
+            const card='  {\n    title: '+JSON.stringify(process.env.NAME)+',\n    description: '+JSON.stringify(process.env.DESC)+',\n    status: \"concept\",\n    url: '+JSON.stringify(process.env.PREVIEW_URL)+',\n    tags: [\"prototype\",\"autobuild\"],\n  },\n';
             const i=s.lastIndexOf('];'); s=s.slice(0,i)+card+s.slice(i); fs.writeFileSync(f,s);
           "
-          git add src/lib/projects.ts
-          git commit -m "Autobuild: lägg till $NAME på /lab (preview: $PREVIEW_URL)"
+          # screenshots → previews/ på grenen
+          mkdir -p previews && cp verify-out/desktop.png verify-out/mobile.png previews/ 2>/dev/null || true
+          git add src/lib/projects.ts previews
+          git commit -m "Autobuild: $NAME på /lab (preview: $PREVIEW_URL, verify: $VERDICT)"
           git push origin "$BRANCH"
-          gh pr create --title "Autobuild: $NAME" \
-            --body "Auto-genererad prototyp från möte.\n\nPreview: $PREVIEW_URL\n\nGranska och merge:a för att promota kortet på /lab." \
-            --base main --head "$BRANCH"
+          RAW="https://raw.githubusercontent.com/davidboorg/surprisesystems/$BRANCH/previews"
+          BODY="Auto-genererad prototyp.
+
+          **Preview:** $PREVIEW_URL
+          **Verify:** $VERDICT
+
+          Desktop: $RAW/desktop.png
+          Mobil: $RAW/mobile.png
+
+          **Violations:**
+          $VIOL
+
+          Granska och merge:a för att promota kortet på /lab."
+          LABEL=""
+          if [ "$VERDICT" = "fail" ]; then
+            gh label create "verify:failed" --color B60205 --repo davidboorg/surprisesystems 2>/dev/null || true
+            LABEL="--label verify:failed"
+          fi
+          gh pr create --title "Autobuild: $NAME" --body "$BODY" --base main --head "$BRANCH" $LABEL

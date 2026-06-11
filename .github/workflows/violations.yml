@@ -1,0 +1,51 @@
+name: Violations memory
+
+# När en autobuild-PR stängs UTAN merge: logga skälet + verify-violations till
+# .claude/violations.md. En veckovis distillation (byggs separat senare) läser
+# filen och föreslår regeländringar till startern och Canon.
+
+on:
+  pull_request:
+    types: [closed]
+
+jobs:
+  record:
+    if: github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Append to .claude/violations.md
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          PR_NUM: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          mkdir -p .claude
+          F=.claude/violations.md
+          if [ ! -f "$F" ]; then
+            printf '# Violations memory\n\n> Autobuild-PR:ar som stängts utan merge loggas här (datum, PR, skäl + verify-violations).\n> Syfte: en veckovis distillation läser filen och föreslår regeluppdateringar till surprise-starter och The Surprise Canon. Distillationen byggs separat — fyll bara på här.\n' > "$F"
+          fi
+          DATE=$(date -u +%F)
+          # Senaste kommentarer (skäl) + violations-sektionen ur PR-bodyn
+          COMMENTS=$(gh pr view "$PR_NUM" --repo davidboorg/surprisesystems --json comments --jq '.comments[-3:][].body' 2>/dev/null | sed 's/^/  > /' || true)
+          VIOL=$(printf '%s' "$PR_BODY" | sed -n '/\*\*Violations:\*\*/,/Granska/p' | grep '^- ' || echo "  (inga i PR-bodyn)")
+          {
+            echo ""
+            echo "## $DATE — PR #$PR_NUM: $PR_TITLE (stängd utan merge)"
+            echo ""
+            echo "Verify-violations:"
+            echo "$VIOL"
+            if [ -n "$COMMENTS" ]; then echo ""; echo "Kommentarer:"; echo "$COMMENTS"; fi
+          } >> "$F"
+          # Committa till main med PAT
+          git config user.name "surprise-autobuild"
+          git config user.email "bot@surpriseventures.io"
+          git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
+          git remote set-url origin "https://x-access-token:${GH_TOKEN}@github.com/davidboorg/surprisesystems.git"
+          git add "$F"
+          git commit -m "violations: logga stängd PR #$PR_NUM" || { echo "inget att committa"; exit 0; }
+          git push origin main
