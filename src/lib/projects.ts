@@ -72,4 +72,11 @@ export const projects: Project[] = [
     tags: ["client", "demo"],
     year: 2026,
   },
+  {
+    title: "ventures-oversikt",
+    description: "Intern översiktssida som listar Surprise ventures som klickbara kort — live, beta och koncept på ett ställe.",
+    status: "concept",
+    url: "https://generated-n5ox2pfad-reportflow1.vercel.app",
+    tags: ["prototype","autobuild"],
+  },
 ];
