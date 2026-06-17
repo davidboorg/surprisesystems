@@ -21,6 +21,7 @@
   --color-muted: var(--color-grey-4);
 
   --font-sans: "Die Grotesk", system-ui, sans-serif;
+  --font-mono: "SF Mono", "Menlo", "Consolas", monospace;
 }
 
 @font-face {
