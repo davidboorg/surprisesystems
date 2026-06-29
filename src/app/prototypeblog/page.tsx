@@ -9,7 +9,6 @@ import {
   MetaRow,
   Tag,
 } from "@/components/prototypeblog/ui";
-import { Subscribe } from "@/components/prototypeblog/Subscribe";
 
 // Editorial flourish; bump by hand when an issue ships.
 const EDITION = "No. 12 / 2026";
@@ -160,18 +159,6 @@ export default async function PrototypeBlogIndex() {
           </p>
         </div>
       </MetaRow>
-
-      {/* subscribe */}
-      <div className="border-y-[0.5px] border-black bg-grey-1">
-        <MetaRow
-          className="px-6 py-10 md:px-14"
-          meta={<Eyebrow>Subscribe</Eyebrow>}
-        >
-          <div className="max-w-[600px]">
-            <Subscribe />
-          </div>
-        </MetaRow>
-      </div>
 
       {/* featured */}
       {featured && <Featured post={featured} />}

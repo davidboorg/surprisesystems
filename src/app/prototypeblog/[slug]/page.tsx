@@ -11,7 +11,6 @@ import {
   Tag,
 } from "@/components/prototypeblog/ui";
 import { mdxComponents } from "@/components/prototypeblog/mdx";
-import { Subscribe } from "@/components/prototypeblog/Subscribe";
 
 export function generateStaticParams() {
   return getNativePosts().map((p) => ({ slug: p.slug }));
@@ -95,12 +94,7 @@ export default async function PrototypeBlogPost({
         <div className="max-w-[680px] px-6 pt-9 md:px-14">{content}</div>
       </article>
 
-      {/* subscribe */}
-      <div className="mt-14 border-t-[0.5px] border-black bg-grey-1">
-        <div className="px-6 py-10 md:px-14">
-          <Subscribe showRss={false} />
-        </div>
-      </div>
+      <div className="mt-14 border-t-[0.5px] border-black" />
 
       <Footer>
         <span className="font-medium">© Surprise Systems</span>. Published early and unfinished, on
