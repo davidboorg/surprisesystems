@@ -1,0 +1,38 @@
+---
+title: "Varför vi bygger före vi vet"
+dek: "Strategidokument beskriver framtiden. Prototyper möter den."
+date: 2026-06-18
+lang: sv
+type: essay
+featured: false
+author: "Surprise Systems"
+readingMinutes: 4
+---
+
+De flesta organisationer vill veta innan de bygger. Det låter ansvarsfullt. I praktiken betyder det att beslut fattas på beskrivningar av verkligheten, inte på&nbsp;verkligheten.
+
+Vi gör tvärtom. Vi bygger en liten sak, sätter den i händerna på någon, och ser vad som faktiskt händer. Det tar en eftermiddag. Det säger mer än en månads&nbsp;workshops.
+
+<Pull>En prototyp är inte en åsikt. Det är ett beteende vi kan mäta.</Pull>
+
+Det mesta vi publicerar här är ofärdigt med flit. Vi delar tidigt för att tänka i det öppna, inte för att imponera. Ibland är inlägget en text. Ibland är det något du kan klicka i. Ibland är det kod du får&nbsp;ta.
+
+<Prototype src="/prototypeblog/notebook.html" title="notebook-that-argues-back" height={300} />
+
+Hela prototypen är några rader. Den vet ingenting. Den ställer bara nästa&nbsp;fråga.
+
+## Ta koden
+
+```js
+// argue-back.js — drop in, no build step
+const reframes = [
+  "Om det är självklart, varför gör ingen det?",
+  "Vilket beteende skulle bevisa det?",
+  "Vem tjänar på att det här är sant?",
+];
+export const argue = (i = 0) => reframes[i % reframes.length];
+```
+
+<Download href="/prototypeblog/files/argue-back.js" label="Ladda ner argue-back.js" />
+
+Vi vet inte om någon av de här idéerna håller. Det är hela meningen med att publicera dem tidigt. <Highlight>Bättre beslut, tidigare.</Highlight>
