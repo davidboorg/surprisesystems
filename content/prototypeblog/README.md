@@ -1,9 +1,9 @@
 # The Prototype Blog — publishing
 
-Posts that live on surprisesystems.io are MDX files in this folder. The index at
-`/prototypeblog` merges these with the latest Substack posts (Hope in Hell) and
-sorts newest first. To publish, add one file and push. Vercel builds, the post
-is live, the RSS feed updates.
+Every post here is a prototype, or the idea behind one. Not essays, not articles:
+small things we build with AI and release early. Posts are MDX files in this
+folder. To publish, add one file and push. Vercel builds, the post is live, the
+RSS feed updates.
 
 ## Publish a post
 
@@ -13,17 +13,17 @@ is live, the RSS feed updates.
 
    ```yaml
    ---
-   title: "Varför vi bygger före vi vet"
-   dek: "Strategidokument beskriver framtiden. Prototyper möter den."
-   date: 2026-06-18          # ISO, drives sorting
+   title: "Bygg en egen AI-skill på två minuter"
+   dek: "En rad som säger vad prototypen är och varför den är intressant."
+   date: 2026-06-28          # ISO, drives sorting
    lang: sv                  # "sv" | "en", sets <article lang> and the language tag
-   type: essay               # "essay" | "prototype" | "code"
+   type: prototype           # "prototype" | "code" | "essay" (prototype is the norm)
    featured: false           # at most one post true; otherwise the newest is featured
    author: "Surprise Systems"
-   readingMinutes: 4         # optional, otherwise estimated from word count
+   readingMinutes: 2         # optional, otherwise estimated from word count
    # type-specific:
-   prototype: "https://www.surprisesystems.io/prototypeblog/<name>"   # required when type: prototype
-   download: "/prototypeblog/files/<file>"                            # required when type: code
+   prototype: "https://www.surprisesystems.io/<path>"   # required when type: prototype
+   download: "/prototypeblog/files/<file>"              # required when type: code
    ---
    ```
 
@@ -38,26 +38,25 @@ is live, the RSS feed updates.
 
 ## Post types
 
-- **essay** — prose. Links internally, CTA verb `Read`.
-- **prototype** — set `prototype` to the URL the prototype is hosted at, under
-  `/prototypeblog/<name>`. Hosting lives outside this repo (separate deploy, own
-  route, or a `rewrites` rule in `next.config`). The post body embeds it with
-  `<Prototype>`. CTA verb `Open`.
+- **prototype** — the default. Set `prototype` to the URL the prototype is
+  served at, then embed it with `<Prototype>`. If it lives on its own deploy,
+  serve it under a path on surprisesystems.io with a `rewrites` rule in the root
+  `vercel.json` (see `/postalmedalen`). Same-origin pages like `/skills` need no
+  rewrite. CTA verb `Open`.
 - **code** — put the file in `public/prototypeblog/files/` and point `download`
   at it. CTA verb `Download`.
+- **essay** — available if a post is pure text, but the blog leads with
+  prototypes and ideas, not essays. CTA verb `Read`.
 
-## Code and downloads
+## Hosting a prototype on its own deploy
 
-- Downloadable files: `public/prototypeblog/files/`.
-- Self-hosted prototype pages can live in `public/prototypeblog/` (see
-  `notebook.html`) or on their own deploy. If hosted on another origin but served
-  under `/prototypeblog/...`, add a `rewrites` rule in `next.config` so the path
-  stays stable and on-brand.
+Mirror the `/postalmedalen` pattern:
 
-## Substack
+1. In the prototype's repo, set the framework `base` to the subpath and add a
+   `vercel.json` rewrite (`/<subpath>/*` → `/*`) so base-pathed assets resolve.
+2. Deploy it (`vercel deploy --prod`).
+3. In the root site `vercel.json`, rewrite `/<subpath>` and `/<subpath>/:path*`
+   to that deploy's public domain.
+4. Embed `src="/<subpath>"` so it serves same-origin on surprisesystems.io.
 
-The five newest Hope in Hell posts are pulled server-side at build (ISR, hourly)
-from `https://hopeinhell.substack.com/feed`, link out in a new tab, and never
-break the page if the feed is down. Remove the masthead note once in-house posts
-dominate (it hides automatically when native posts outnumber the Substack ones).
-The site RSS feed at `/prototypeblog/rss.xml` covers native posts only.
+The site RSS feed at `/prototypeblog/rss.xml` covers all posts.

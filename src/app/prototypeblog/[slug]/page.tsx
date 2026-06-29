@@ -63,7 +63,10 @@ export default async function PrototypeBlogPost({
       <HeaderBar
         right={
           <ArrowLink href="/prototypeblog">
-            <span className="text-[11px] uppercase tracking-[0.06em]">Back to all posts</span>
+            <span className="text-[11px] uppercase tracking-[0.06em]">
+              <span className="sm:hidden">Back</span>
+              <span className="hidden sm:inline">Back to all posts</span>
+            </span>
           </ArrowLink>
         }
       />

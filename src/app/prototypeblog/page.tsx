@@ -14,8 +14,6 @@ import { Subscribe } from "@/components/prototypeblog/Subscribe";
 // Editorial flourish; bump by hand when an issue ships.
 const EDITION = "No. 12 / 2026";
 
-export const revalidate = 3600;
-
 function PostTags({ post }: { post: Post }) {
   return (
     <div className="flex gap-1.5">
@@ -132,9 +130,11 @@ export default async function PrototypeBlogIndex() {
       <HeaderBar
         right={
           <>
-            <span className="text-grey-4">SURPRISE.SYSTEMS™</span>
+            <span className="hidden text-grey-4 sm:inline">SURPRISE.SYSTEMS™</span>
             <ArrowLink href="https://www.surprisesystems.io" external>
-              <span className="text-[11px] uppercase tracking-[0.06em]">surprisesystems.io</span>
+              <span className="hidden text-[11px] uppercase tracking-[0.06em] sm:inline">
+                surprisesystems.io
+              </span>
             </ArrowLink>
           </>
         }
@@ -151,11 +151,12 @@ export default async function PrototypeBlogIndex() {
             Early ideas, published before they are <Highlight>safe.</Highlight>
           </h1>
           <p className="m-0 mb-3.5 max-w-[600px] text-[20px] font-light leading-[1.55]">
-            We build small things with AI to think in public. Essays, prototypes you can click, and
-            code you are free to take.
+            Everything here is a prototype, or the idea behind one. We build small things with AI
+            and put them in your hands early.
           </p>
           <p className="m-0 max-w-[600px] text-[20px] font-light leading-[1.55]">
-            Some posts are in Swedish, some in English. None of it is finished. That is the&nbsp;point.
+            Some are in Swedish, some in English. None of it is a finished product. That is
+            the&nbsp;point.
           </p>
         </div>
       </MetaRow>

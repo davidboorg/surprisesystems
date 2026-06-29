@@ -18,7 +18,7 @@ export function Subscribe({ showRss = true }: { showRss?: boolean }) {
         Subscribe · The Prototype Blog
       </p>
       <p className="m-0 mb-5 max-w-[520px] text-[15px] font-light leading-[1.5] text-grey-5">
-        New prototypes and essays when they ship. No schedule. No&nbsp;noise.
+        New prototypes when they ship. No schedule. No&nbsp;noise.
       </p>
 
       {subscribed ? (

@@ -158,16 +158,16 @@ export function MetaRow({
 /** Header bar shared by index and article. */
 export function HeaderBar({ right }: { right: ReactNode }) {
   return (
-    <div className="flex items-center justify-between border-b-[0.5px] border-black px-6 py-5 md:px-14">
-      <div className="flex items-center gap-3.5">
-        <Link href="/prototypeblog" className="flex items-center">
+    <div className="flex items-center justify-between gap-3 border-b-[0.5px] border-black px-6 py-5 md:gap-7 md:px-14">
+      <div className="flex min-w-0 items-center gap-3 md:gap-3.5">
+        <Link href="/prototypeblog" className="flex shrink-0 items-center">
           <Logo />
         </Link>
-        <span className="text-[11px] font-bold uppercase tracking-[0.06em] text-black">
+        <span className="truncate text-[11px] font-bold uppercase tracking-[0.06em] text-black">
           The Prototype Blog
         </span>
       </div>
-      <div className="flex items-baseline gap-7 text-[11px] font-bold uppercase tracking-[0.06em]">
+      <div className="flex shrink-0 items-baseline gap-4 text-[11px] font-bold uppercase tracking-[0.06em] md:gap-7">
         {right}
       </div>
     </div>
