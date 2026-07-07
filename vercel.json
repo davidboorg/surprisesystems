@@ -12,6 +12,14 @@
     {
       "source": "/postalmedalen/:path*",
       "destination": "https://wrapup-site.vercel.app/postalmedalen/:path*"
+    },
+    {
+      "source": "/propagandaindex",
+      "destination": "https://propagandaindex.vercel.app/propagandaindex"
+    },
+    {
+      "source": "/propagandaindex/:path*",
+      "destination": "https://propagandaindex.vercel.app/propagandaindex/:path*"
     }
   ]
 }
