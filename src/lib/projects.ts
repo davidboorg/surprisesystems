@@ -72,4 +72,11 @@ export const projects: Project[] = [
     tags: ["client", "demo"],
     year: 2026,
   },
+  {
+    title: "sentimental-protect",
+    description: "AI:n läser slitaget på dina mest älskade ägodelar och skapar ett tidsstämplat skick-bevis — för försäkring, arv eller minne.",
+    status: "concept",
+    url: "https://generated-3qhjm36tl-reportflow1.vercel.app",
+    tags: ["prototype","autobuild"],
+  },
 ];
