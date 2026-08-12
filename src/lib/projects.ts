@@ -72,4 +72,11 @@ export const projects: Project[] = [
     tags: ["client", "demo"],
     year: 2026,
   },
+  {
+    title: "lab",
+    description: "Surprise Ventures lab — där idéer blir prototyper innan de blir rätt, byggt i det öppna.",
+    status: "concept",
+    url: "https://generated-cow3036tl-reportflow1.vercel.app",
+    tags: ["prototype","autobuild"],
+  },
 ];
